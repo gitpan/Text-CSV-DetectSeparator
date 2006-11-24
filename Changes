@@ -4,3 +4,8 @@ Revision history for Perl extension Text::CSV::DetectSeparator.
 	- original version; created by h2xs 1.23 with options
 		-XA -b 5.6.1 -n Text::CSV::DetectSeparator
 
+0.02  Fri Nov 24 09:29:25 2006
+      + test: 97_manifest.t
+      + test: 98_boilerplate.t
+      + test: 99_pod.t
+      + test: 99_pod_coverage.t

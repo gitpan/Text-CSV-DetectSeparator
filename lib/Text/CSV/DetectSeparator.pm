@@ -7,7 +7,7 @@ use Tie::File;
 use Text::CSV_XS;
 use File::Type;
 
-our $VERSION   = '0.01';
+our $VERSION   = '0.02';
 our $MAX_LINES = 10;
 our @possible_sepchars = (',',';',':','.','#');
 

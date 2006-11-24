@@ -1,5 +1,5 @@
-Text-CSV-DetectSeparator version 0.01
-=====================================
+Text-CSV-DetectSeparator
+========================
 
 The purpose of this module is to automate the detection of the fieldseparator
 in a CSV-file.

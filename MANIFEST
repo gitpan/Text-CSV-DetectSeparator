@@ -3,4 +3,11 @@ Makefile.PL
 MANIFEST
 README
 t/Text-CSV-DetectSeparator.t
+t/97_manifest.t
+t/98_boilerplate.t
+t/99_pod.t
+t/99_pod_coverage.t
+t/test.csv
+t/test2.csv
 lib/Text/CSV/DetectSeparator.pm
+META.yml                                 Module meta-data (added by MakeMaker)
