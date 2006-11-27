@@ -7,7 +7,7 @@ use Tie::File;
 use Text::CSV_XS;
 use File::Type;
 
-our $VERSION   = '0.02';
+our $VERSION   = '0.03';
 our $MAX_LINES = 10;
 our @possible_sepchars = (',',';',':','.','#');
 
@@ -81,7 +81,7 @@ sub _check_mimetype{
 
   my $ft = File::Type->new();
   $filetype = $ft->mime_type($file);
-  
+    
   return $filetype;
 }# _check_mimetype
 
@@ -96,7 +96,9 @@ sub _find_separator{
   unless($self->{Error}){
     my %lineindexes;
     while(keys(%lineindexes) < $MAX_LINES && keys(%lineindexes) < scalar(@lines)){
-      $lineindexes{int rand(scalar(@lines))} = 1;
+      my $index = int rand(scalar(@lines));
+      next if($lines[$index] =~ /^\s*$/);
+      $lineindexes{$index} = 1;
     }
     push(@extracted,$lines[$_]) for(keys(%lineindexes));
     untie @lines;
@@ -131,7 +133,10 @@ sub _parse{
     }
   }
   
+  #print STDERR Dumper(\@sepchars);
+  
   if(scalar(@sepchars) == 1){
+    #print STDERR "just one\n";
     $sepchar = $sepchars[0];
   }
   elsif($self->{Counter} == 10){
@@ -139,7 +144,7 @@ sub _parse{
   }
   else{
     $MAX_LINES *= 2;
-    $self->_find_separator($file);
+    $sepchar = $self->_find_separator($file);
   }
   
   return $sepchar;

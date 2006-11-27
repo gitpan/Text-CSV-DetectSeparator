@@ -9,3 +9,6 @@ Revision history for Perl extension Text::CSV::DetectSeparator.
       + test: 98_boilerplate.t
       + test: 99_pod.t
       + test: 99_pod_coverage.t
+
+0.03  Sun Nov 26 12:40:33 2006
+      - bugfix: manifest.t
